@@ -34,8 +34,10 @@ os.chdir(file_path)
 
 
 WIDTH = 800
-HEIGHT = 800
-SPRITE_SCALING = 0.5
+HEIGHT = 700
+SPRITE_SCALING = 1
+SPRITE_SCALING_ZOMBIE = 0.8
+
 
 class MenuView(arcade.View):
     def on_show(self):
@@ -81,8 +83,8 @@ class GameView(arcade.View):
 
         # Set up the player
         self.score = 0
-        self.player_sprite = arcade.Sprite(":resources:images/animated_characters/female_person/femalePerson_idle.png",
-                                           SPRITE_SCALING)
+        self.player_sprite = arcade.Sprite(":resources:images/animated_characters/zombie/zombie_walk1.png",
+                                           SPRITE_SCALING_ZOMBIE)
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
@@ -90,7 +92,7 @@ class GameView(arcade.View):
         for i in range(8):
 
             # Create the coin instance
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING / 3)
+            coin = arcade.Sprite(":resources:images/animated_characters/male_person/malePerson_walk1.png", SPRITE_SCALING / 3)
 
             # Position the coin
             coin.center_x = random.randrange(WIDTH)
