@@ -34,7 +34,7 @@ os.chdir(file_path)
 
 
 WIDTH = 800
-HEIGHT = 600
+HEIGHT = 800
 SPRITE_SCALING = 0.5
 
 class MenuView(arcade.View):
@@ -55,7 +55,7 @@ class MenuView(arcade.View):
 
 class InstructionView(arcade.View):
     def on_show(self):
-        arcade.set_background_color(arcade.color.ORANGE_PEEL)
+        arcade.set_background_color(arcade.color.BLUE)
 
     def on_draw(self):
         arcade.start_render()
@@ -87,7 +87,7 @@ class GameView(arcade.View):
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
 
-        for i in range(5):
+        for i in range(8):
 
             # Create the coin instance
             coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING / 3)
@@ -157,15 +157,15 @@ class GameOverView(arcade.View):
         self.time_taken = 0
 
     def on_show(self):
-        arcade.set_background_color(arcade.color.BLACK)
+        arcade.set_background_color(arcade.color.RED)
 
     def on_draw(self):
         arcade.start_render()
         """
         Draw "Game over" across the screen.
         """
-        arcade.draw_text("Game Over", 240, 400, arcade.color.WHITE, 54)
-        arcade.draw_text("Click to restart", 310, 300, arcade.color.WHITE, 24)
+        arcade.draw_text("Game Over", 240, 400, arcade.color.BLACK, 54)
+        arcade.draw_text("Click to restart", 310, 300, arcade.color.GREEN, 24)
 
         time_taken_formatted = f"{round(self.time_taken, 2)} seconds"
         arcade.draw_text(f"Time taken: {time_taken_formatted}",
